@@ -44,7 +44,7 @@ public class PatientScreenLog {
 
 
     //EFFECTS: return size of list
-    public int getSize() {
+    public int length() {
         return screenLog.size();
     }
 

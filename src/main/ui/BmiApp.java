@@ -3,8 +3,6 @@ package ui;
 import model.Patient;
 import model.PatientScreenLog;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 // Bmi calculator application
@@ -15,16 +13,14 @@ public class BmiApp {
 
     // EFFECTS: runs the Bmi application
     public BmiApp() {
-        pt = new Patient();
-        ptList = new PatientScreenLog();
-        runBmi();
+        runBmiApp();
     }
 
     // MODIFIES: this
     // EFFECTS: processes user input
-    private void runBmi() {
+    private void runBmiApp() {
         boolean keepGoing = true;
-        String command = "";
+        String command = null;
 
         init();
 
@@ -67,6 +63,7 @@ public class BmiApp {
     // MODIFIES: this
     // EFFECTS: initializes accounts
     private void init() {
+        ptList = new PatientScreenLog();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -78,14 +75,14 @@ public class BmiApp {
         //Patient p = new Patient();
 
         // System.out.println("Entered name: " + p.getName());
+        pt = new Patient(ptName);
         double ptBmi = doCalculation();
-
         //p.setName(ptName);
         //p.setBmi(ptBmi);
         //Patient p = new Patient(ptName);
-        pt.setName(ptName);
         //pt.setName(ptName);
-        pt.setBmi(ptBmi);
+        //pt.setName(ptName);
+        //pt.setBmi(ptBmi);
 
         System.out.println("Entered name: " + ptName);
         System.out.println("Calculated BMI: " + ptBmi);
@@ -103,10 +100,10 @@ public class BmiApp {
         // otherwise the carriage return is taken as the
         // next input and you get a blank "selected" loop
 
-        double result = pt.calculateBmi(heightFt, heightIn, weight);
-        pt.setWeight(weight);
-        pt.setHeightFt(heightFt);
-        pt.setHeightIn(heightIn);
+        double result = pt.calculateBmi(weight, heightFt, heightIn);
+        //pt.setWeight(weight);
+        //pt.setHeightFt(heightFt);
+        //pt.setHeightIn(heightIn);
         //return result;
         //System.out.println("BMI: " + result);
         return result;
@@ -114,11 +111,9 @@ public class BmiApp {
 
     private void printList() {
         int index = 0;
-        while (index < ptList.getSize()) {
+        while (index < ptList.length()) {
             System.out.println(ptList.getPatient(index));
             index = index + 1;
         }
     }
-
-
 }

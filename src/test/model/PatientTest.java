@@ -11,9 +11,9 @@ class PatientTest {
 
     @BeforeEach
     public void setup() {
-        this.patient = new Patient();
-        patient.setName("Jordan");
-        double bmi = patient.calculateBmi(5,11,170);
+        patient = new Patient("Jordan");
+        //patient.setName("Jordan");
+        double bmi = patient.calculateBmi(170,5,11);
         patient.setBmi(bmi);
     }
 

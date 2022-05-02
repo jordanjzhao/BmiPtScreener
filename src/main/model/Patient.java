@@ -17,9 +17,9 @@ public class Patient {
 
 
 
-    public Patient() { //, double patientBmi) {
+    public Patient(String name) {
         id = nextAccountId++;
-        this.name = "";
+        this.name = name;
         //this.bmi = patientBmi;
         this.height = 0;
         this.weight = 0;
@@ -62,7 +62,7 @@ public class Patient {
     // REQUIRES: height, weight in imperial metric
     // MODIFIES: this
     // EFFECTS: calculate the patient BMI and return a BMI value
-    public double calculateBmi(int heightFt, int heightIn, int weight) {
+    public double calculateBmi( int weight, int heightFt, int heightIn) {
         this.weight = weight;
         this.heightFt = heightFt;
         this.heightIn = heightIn;
