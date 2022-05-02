@@ -61,4 +61,13 @@ public class PatientScreenLogTest {
 
         assertEquals(ptList.returnList(), ptList.returnList());
     }
+
+    @Test
+    void removePatientTest() {
+        ptList.addPatientToList(patient);
+        ptList.addPatientToList(patient2);
+        assertEquals(2, ptList.length());
+        ptList.removePatient(patient);
+        assertEquals(1, ptList.length());
+    }
 }
