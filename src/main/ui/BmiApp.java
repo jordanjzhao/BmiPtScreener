@@ -43,7 +43,9 @@ public class BmiApp {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> Add Patient");
         System.out.println("\ts -> Select Patient");
-        System.out.println("\tp -> Print Patient Screen Log");
+        System.out.println("\tr -> Remove Patient");
+        System.out.println("\tl -> Return list of Patient(s)");
+        System.out.println("\tp -> Compile Patient Screen Log");
         System.out.println("\tq => Quit");
     }
 
@@ -54,8 +56,12 @@ public class BmiApp {
             newPatient();
         } else if (command.equals("s")) {
             selectPatient();
-        } else if (command.equals("p")) {
+        } else if (command.equals("l")) {
+            printList();
+        }  else if (command.equals("p")) {
             returnList();
+        } else if (command.equals("r")) {
+            removePatient();
         } else {
             System.out.println("Please make a valid selection");
         }
@@ -109,6 +115,19 @@ public class BmiApp {
                 System.out.println(pt.getName() + ", BMI: " + pt.getBmi());
             }
         }
+    }
+
+    private void removePatient() {
+        System.out.println("Enter the name of the patient you would like to remove: ");
+        String patientSelect = input.next();
+
+        for (int i = 0; i < ptList.length(); i++) {
+            if (patientSelect.equals(ptList.getPatient(i).getName())) {
+                System.out.println("You have selected: " + ptList.getPatient(i).getName());
+                ptList.removePatient(ptList.getPatient(i));
+            }
+        }
+
     }
 
     private void printList() {

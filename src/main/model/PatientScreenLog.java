@@ -40,18 +40,19 @@ public class PatientScreenLog {
         return ptLog;
     }
 
-
-
     //EFFECTS: return size of list
     public int length() {
         return screenLog.size();
     }
-
 
     //EFFECTS: get patient
     public Patient getPatient(int index) {
         return screenLog.get(index);
     }
 
+    //EFFECTS: remove patient
+    public Boolean removePatient(Patient p) {
+        return screenLog.remove(p);
+    }
 
 }

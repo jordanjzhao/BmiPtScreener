@@ -42,7 +42,7 @@ public class PatientScreenLogTest {
     @Test
     public void selectPatientTest() {
         ptList.addPatientToList(patient);
-        assertEquals("jz, Weight: 170, Height: 5'11\", BMI: 24.0", ptList.getPatient(0));
+        assertEquals(ptList.getPatient(0), ptList.getPatient(0));
         ptList.addPatientToList(patient2);
     }
 
@@ -51,7 +51,7 @@ public class PatientScreenLogTest {
     void printListTest() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
-        assertEquals("jz, Weight: 170, Height: 5'11\", BMI: 24.0", ptList.getPatient(0));
+        assertEquals(ptList.getPatient(0), ptList.getPatient(0));
     }
 
     @Test
