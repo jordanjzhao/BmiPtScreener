@@ -104,6 +104,7 @@ public class BmiApp {
         pt = new Patient(ptName);
         double ptBmi = doCalculation();
         String interp = interpretBmi(ptBmi);
+        pt.setInterp(interp);
 
         System.out.println("Entered name: " + ptName);
         System.out.println("BMI Score: " + ptBmi + " kg/m^2");
@@ -111,12 +112,7 @@ public class BmiApp {
 
         ptList.addPatientToList(pt);
     }
-    /*
-    | Below 18.5 | Underweight |
-| 18.5 - 24.9 | Healthy Weight |
-| 25.0 - 29.9 | Overweight |
-| 30.0 and Above | Obesity |
-     */
+
     // EFFECTS: interprets BMI result
     private String interpretBmi(double ptBmi) {
         if (ptBmi < 18.5) {

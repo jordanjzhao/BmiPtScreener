@@ -18,6 +18,7 @@ public class Patient implements Writable {
     private int heightFt;
     private int heightIn;
     private double finalBmi;
+    private String interp;
 
 
     // EFFECTS: constructs a new patient with given name; initializes the weight, height, and bmi to 0
@@ -26,6 +27,7 @@ public class Patient implements Writable {
         this.weight = 0;
         this.height = 0;
         this.bmi = 0;
+        this.interp = "";
     }
 
     public static double round(double value, int places) {
@@ -83,6 +85,11 @@ public class Patient implements Writable {
         this.bmi = bmi;
     }
 
+    // EFFECTS: sets patient interp based on calculated bmi
+    public void setInterp(String interp) {
+        this.interp = interp;
+    }
+
     // EFFECTS: returns patient name
     public String getName() {
         return name;
@@ -108,7 +115,7 @@ public class Patient implements Writable {
     // EFFECTS: returns the toString print of the patient screened
     public String toString() {
         return ("Name: " + this.name + ", Weight: " + this.weight + " lbs" + ", Height: " + this.heightFt + "'" + //
-                this.heightIn + "\"" + ", BMI: " + this.bmi + " kg/m^2");
+                this.heightIn + "\"" + ", BMI: " + this.bmi + " kg/m^2" + ", Interpretation: " + this.interp);
     }
 
     @Override
@@ -119,6 +126,7 @@ public class Patient implements Writable {
         json.put("HeightFt", heightFt);
         json.put("HeightIn", heightIn);
         json.put("BMI", bmi);
+        json.put("Interpretation", interp);
         return json;
     }
 }
