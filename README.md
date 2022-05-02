@@ -21,7 +21,6 @@ increased risk of developing CVD at an earlier age (Khan et al.)
 | 25.0 - 29.9 | Overweight |
 | 30.0 and Above | Obesity |
 
-
 ## Functionality
 
 *Tasks:*
@@ -44,15 +43,14 @@ increased risk of developing CVD at an earlier age (Khan et al.)
 *GUI Implementation:*
 - Include a panel in which all the patients added to the patient list are displayed
 - Two related events related to the patients and patient list
-  - add another patient button?
-  - select a patient button?
-  - remove a patient button?
-- Option to load and save
-  - load/save whenever OR pop up at start giving user option to load and save at end
+  - option to add another patient
+  - option remove a patient button
+  - display and select patient on click
+- Option to save and load
+  - option to save/load patient screen log data
 - Visual Component
-  - displaying an image when event occurs?
-  - displaying image or splash screen on app start?
-  - or display a graph to represent some aspect of user data?
+  - displaying splash screen gif on app start
+  - displaying an image and confirmation on confirmation of button click event
 
 *Phase 4: Task 2* 
 
@@ -119,12 +117,18 @@ Patient jz removed from screen log.
 Wed Mar 30 15:34:46 PDT 2022
 Patient Zach LaVine removed from screen log.
 
+*Phase 4: Task 3*
+- Reflection on the UML design layout produced:
+- refactor BmiAppGui such to separate functionality of responsibilities required to build GUI
+- make separate classes to handle GUI Panels, buttons, layout, images, etc.
+- implementation of Observer pattern such that the Screen Log can update on changes via addition/removal of patients
 
 ## Programming 
 
 *Purpose:*
 - Design and develop a functional program using Java (IntelliJ)
 - Incorporate testing with the use of JUnit
+- Implementation GUI with the use of JSwing
 
 ## Works Cited
 

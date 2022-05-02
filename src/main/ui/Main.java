@@ -23,12 +23,11 @@ public class Main {
                 }
             }
         }, "Shutdown-thread"));
-        /*
+
         try {
             new BmiApp();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to run application: file not found");
         }
-         */
     }
 }
