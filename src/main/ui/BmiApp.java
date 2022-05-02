@@ -52,7 +52,7 @@ public class BmiApp {
         if (command.equals("a")) {
             newPatient();
         } else if (command.equals("s")) {
-            doCalculation();
+            selectPatient();
         } else if (command.equals("p")) {
             printList();
         } else {
@@ -101,12 +101,22 @@ public class BmiApp {
         // next input and you get a blank "selected" loop
 
         double result = pt.calculateBmi(weight, heightFt, heightIn);
-        //pt.setWeight(weight);
-        //pt.setHeightFt(heightFt);
-        //pt.setHeightIn(heightIn);
-        //return result;
-        //System.out.println("BMI: " + result);
         return result;
+    }
+
+    private void selectPatient() {
+        System.out.println("Enter the name of the patient you would like to select: ");
+        String patientSelect = input.next();
+
+        for (int i = 0; i < ptList.length(); i++) {
+            if (patientSelect.equals(ptList.getPatient(i).getName())) {
+                System.out.println("You have selected: " + ptList.getPatient(i).getName());
+                this.pt = ptList.getPatient(i);
+                System.out.println(pt.getName() + ", BMI: " + pt.getBmi());
+            } else {
+                System.out.println("This patient you have entered does not match the database");
+            }
+        }
     }
 
     private void printList() {
