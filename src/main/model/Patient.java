@@ -5,17 +5,42 @@ import java.util.Scanner;
 // Represents a patient having a patient id, patient name, and BMI
 public class Patient {
     public static final int CONVERSIONFACTOR = 703;
-    private static int nextAccountId = -1;
+    private static int nextAccountId = 1;
 
     private int id;
     private String name;
     private double bmi;
-    private Scanner scanner;
+    private int weight;
+    private int height;
+    private int heightFt;
+    private int heightIn;
 
-    public Patient(String patientName) {
+
+
+    public Patient(String patientName) { //, double patientBmi) {
         id = nextAccountId++;
-        name = patientName;
+        this.name = patientName;
+        //this.bmi = patientBmi;
+        this.height = 0;
+        this.weight = 0;
+        this.bmi = 0;
 
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setBmi(double bmi) {
+        this.bmi = bmi;
     }
 
     public int getId() {
@@ -26,31 +51,23 @@ public class Patient {
         return name;
     }
 
+    public double getBmi() {
+        return bmi;
+    }
 
     // REQUIRES: height, weight in imperial metric
     // MODIFIES: this
     // EFFECTS: calculate the patient BMI and return a BMI value
-    public double calculateBmi() {
-        int bmi = 0;
-        int height = 0;
-
-        System.out.println("Please enter the patient weight (lbs):");
-        int weight = scanner.nextInt();
-        System.out.println("Please enter the patient height (ft) [1 of 2]:");
-        int heightFt = scanner.nextInt();
-        System.out.println("Please enter the patient height (in) [2 of 2]:");
-        int heightIn = scanner.nextInt();
-        scanner.nextLine(); // clears the line;
-        // otherwise the carriage return is taken as the
-        // next input and you get a blank "selected" loop
-        height = (heightFt * 12) + heightIn;
-        bmi = (weight * CONVERSIONFACTOR) / (height * height);
+    public double calculateBmi(int heightFt, int heightIn, int weight) {
+        this.weight = weight;
+        this.heightFt = heightFt;
+        this.heightIn = heightIn;
+        this.height = (heightFt * 12) + heightIn;
+        this.bmi = (weight * CONVERSIONFACTOR) / (height * height);
         return bmi;
-        //stub
     }
 
-    public double getBmi() {
-        return bmi;
-        //stub
+    public String toString() {
+        return this.name + ", Weight: " + this.weight + ", Height: " + this.heightFt + "'" + this.heightIn + "\"" + ", BMI: " + this.bmi;
     }
 }

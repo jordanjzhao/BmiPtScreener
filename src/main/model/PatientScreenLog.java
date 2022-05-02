@@ -2,6 +2,7 @@ package model;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 // Represents a screen log of patients and their stored measurements
 public class PatientScreenLog {
@@ -13,14 +14,33 @@ public class PatientScreenLog {
     }
 
     // EFFECTS: return Patient at given index of list
-    public void getPatient(int index) {
-        screenLog.get(index);
-    }
+    //public void getPatient(String name) {
+    //    screenLog.get(name);
+    //}
 
     // MODIFIES: this
-    // EFFECTS: Creates new Patient
-    public void addPatient(Patient patient) {
+    // EFFECTS: add patient to list
+    public void addPatientToList(Patient patient) {
         screenLog.add(patient);
+    }
+
+    /*
+    // EFFECTS: return list
+    public ArrayList<Patient> returnList() {
+        //return screenLog;
+        for (int i = 0; i < screenLog.size(); i++) {
+            Patient pt = screenLog.get(i);
+            return pt;
+            // return list // and then print it out in the ui
+        }
+    }
+    */
+
+
+
+    //EFFECTS: return size of list
+    public int getSize() {
+        return screenLog.size();
     }
 
 }
