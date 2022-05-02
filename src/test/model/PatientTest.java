@@ -18,6 +18,13 @@ class PatientTest {
     }
 
     @Test
+    public void setNameTest() {
+        Patient p = new Patient("Ed");
+        p.setName("Jordan");
+        assertEquals("Jordan", this.patient.getName());
+    }
+
+    @Test
     public void patientTest() {
         //create new instance of patient with name, id
         assertEquals("Jordan", this.patient.getName());

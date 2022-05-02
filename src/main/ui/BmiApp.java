@@ -55,7 +55,7 @@ public class BmiApp {
         } else if (command.equals("s")) {
             selectPatient();
         } else if (command.equals("p")) {
-            printList();
+            returnList();
         } else {
             System.out.println("Please make a valid selection");
         }
@@ -117,5 +117,9 @@ public class BmiApp {
             System.out.println(ptList.getPatient(index));
             index = index + 1;
         }
+    }
+
+    private void returnList() {
+        System.out.println("Patients: " + ptList.returnList());
     }
 }

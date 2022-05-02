@@ -5,9 +5,7 @@ import java.util.Scanner;
 // Represents a patient having a patient id, patient name, and BMI
 public class Patient {
     public static final int CONVERSIONFACTOR = 703;
-    private static int nextAccountId = 1;
 
-    private int id;
     private String name;
     private double bmi;
     private int weight;
@@ -18,9 +16,7 @@ public class Patient {
 
 
     public Patient(String name) {
-        id = nextAccountId++;
         this.name = name;
-        //this.bmi = patientBmi;
         this.height = 0;
         this.weight = 0;
         this.bmi = 0;
@@ -47,10 +43,6 @@ public class Patient {
         this.bmi = bmi;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public String getName() {
         return name;
     }
@@ -72,8 +64,8 @@ public class Patient {
     }
 
     public String toString() {
-        return this.name + ", Weight: " + this.weight + ", Height: " + this.heightFt + "'" + this.heightIn + //
-                "\"" + ", BMI: " + this.bmi;
+        return (this.name + ", Weight: " + this.weight + ", Height: " + this.heightFt + "'" + this.heightIn + //
+                "\"" + ", BMI: " + this.bmi);
     }
 
 }

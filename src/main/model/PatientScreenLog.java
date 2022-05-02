@@ -29,17 +29,16 @@ public class PatientScreenLog {
     }
 */
 
-    /*
-    // EFFECTS: return list
+    //EFFECTS: return list
     public ArrayList<Patient> returnList() {
         //return screenLog;
+        ArrayList<Patient> ptLog = new ArrayList<>();
         for (int i = 0; i < screenLog.size(); i++) {
-            Patient pt = screenLog.get(i);
-            return pt;
+            ptLog.add(screenLog.get(i));
             // return list // and then print it out in the ui
         }
+        return ptLog;
     }
-    */
 
 
 
@@ -48,9 +47,11 @@ public class PatientScreenLog {
         return screenLog.size();
     }
 
+
     //EFFECTS: get patient
     public Patient getPatient(int index) {
         return screenLog.get(index);
     }
+
 
 }
