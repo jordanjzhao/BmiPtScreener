@@ -33,13 +33,13 @@ class PatientTest {
     @Test
     // calculate BMI
     public void bmiTest() {
-        assertEquals(23.0, this.patient.getBmi());
+        assertEquals(23.7, this.patient.getBmi());
     }
 
     @Test
     // return patient to string
     void returnString() {
-        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.0 kg/m^2",
+        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.7 kg/m^2",
                 this.patient.toString());
     }
 }

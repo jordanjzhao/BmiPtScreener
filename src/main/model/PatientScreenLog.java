@@ -5,6 +5,8 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 // Represents a screen log of patients and their stored bmi measurements
 public class PatientScreenLog implements Writable {
@@ -54,6 +56,11 @@ public class PatientScreenLog implements Writable {
     // EFFECTS: removes patient from the screen log
     public Boolean removePatient(Patient p) {
         return screenLog.remove(p);
+    }
+
+    // EFFECTS: returns an unmodifiable list of all patients in this patient screen log
+    public List<Patient> getListOfPatients() {
+        return Collections.unmodifiableList(screenLog);
     }
 
     @Override
