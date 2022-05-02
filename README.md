@@ -54,6 +54,71 @@ increased risk of developing CVD at an earlier age (Khan et al.)
   - displaying image or splash screen on app start?
   - or display a graph to represent some aspect of user data?
 
+*Phase 4: Task 2* 
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Jordan Zhao added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Candy added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Shaquille O'Neal added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Luka Dončić added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Boban Marjanović added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Zion Williamson added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Giannis Antetokounmpo added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Kobe Bryant added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Nikola Jokić added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Rudy Gobert added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Ja Morant added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Devin Booker added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient LeBron James added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Dirk Nowitzki added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Allen Iverson added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Damian Lillard added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Stephen Curry added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient Zach LaVine added to screen log.
+
+Wed Mar 30 15:34:35 PDT 2022
+Patient jz added to screen log.
+
+Wed Mar 30 15:34:44 PDT 2022
+Patient jz removed from screen log.
+
+Wed Mar 30 15:34:46 PDT 2022
+Patient Zach LaVine removed from screen log.
+
 
 ## Programming 
 

@@ -65,13 +65,6 @@
         },
         {
             "HeightFt": 7,
-            "Weight": 280,
-            "Name": "Joel Embiid",
-            "HeightIn": 0,
-            "BMI": 27.9
-        },
-        {
-            "HeightFt": 7,
             "Weight": 258,
             "Name": "Rudy Gobert",
             "HeightIn": 1,
@@ -131,6 +124,13 @@
             "Weight": 200,
             "Name": "Zach LaVine",
             "HeightIn": 5,
+            "BMI": 23.7
+        },
+        {
+            "HeightFt": 5,
+            "Weight": 170,
+            "Name": "jz",
+            "HeightIn": 11,
             "BMI": 23.7
         }
     ],

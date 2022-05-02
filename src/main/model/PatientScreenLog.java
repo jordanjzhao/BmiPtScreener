@@ -29,6 +29,7 @@ public class PatientScreenLog implements Writable {
     // EFFECTS: adds patient to screen log
     public void addPatientToList(Patient patient) {
         screenLog.add(patient);
+        EventLog.getInstance().logEvent(new Event("Patient " + patient.getName() + " added to screen log."));
     }
 
     //EFFECTS: return full list of screen log
@@ -55,8 +56,9 @@ public class PatientScreenLog implements Writable {
     // REQUIRES: selected patient of interest
     // MODIFIES: this
     // EFFECTS: removes patient from the screen log
-    public Boolean removePatient(Patient p) {
-        return screenLog.remove(p);
+    public void removePatient(Patient patient) {
+        screenLog.remove(patient);
+        EventLog.getInstance().logEvent(new Event("Patient " + patient.getName() + " removed from screen log."));
     }
 
     // EFFECTS: returns an unmodifiable list of all patients in this patient screen log

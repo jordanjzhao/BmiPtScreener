@@ -1,6 +1,7 @@
 package ui;
 
 import model.*;
+import model.Event;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -26,6 +27,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     private static final String loadString = "Load";
     private static final String JSON_STORE = "./data/screenlog.json";
     private static final String sqrSymbol = "²";
+    private static EventLog eventLog;
 
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -64,6 +66,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
 
     // EFFECTS: Construct new GUI (Graphical User Interface) for Bmi App
     public BmiAppGUI() {
+        eventLog = new EventLog();
         // JFrame
         bmiLogo = new ImageIcon("src/images/bmiLogo.png");
         setSize(800, 600);
@@ -470,6 +473,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         app.setVisible(true);
         */
     }
+
     /* MOVED TO MAIN
     public static void main(String[] args) {
         //Schedule job for event-dispatching thread:
