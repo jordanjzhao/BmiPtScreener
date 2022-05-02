@@ -3,10 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PatientScreenLogTest {
 
@@ -18,13 +15,11 @@ public class PatientScreenLogTest {
     public void setup() {
         ptList = new PatientScreenLog();
         patient = new Patient("jz");
-        //patient.setName("jz");
         patient.setWeight(170);
         patient.setHeightFt(5);
         patient.setHeightIn(11);
         patient.setBmi(24.0);
         patient2 = new Patient("jt");
-        //patient2.setName("jt");
         patient2.setBmi(23.0);
     }
 

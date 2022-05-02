@@ -12,7 +12,6 @@ class PatientTest {
     @BeforeEach
     public void setup() {
         patient = new Patient("Jordan");
-        //patient.setName("Jordan");
         double bmi = patient.calculateBmi(170,5,11);
         patient.setBmi(bmi);
     }
@@ -40,6 +39,7 @@ class PatientTest {
     @Test
     // return patient to string
     void returnString() {
-        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.0 kg/m^2", this.patient.toString());
+        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.0 kg/m^2",
+                this.patient.toString());
     }
 }

@@ -1,8 +1,13 @@
 package model;
 
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 // Represents a patient having a patient name and a BMI score
 public class Patient {
-    public static final int CONVERSION_FACTOR = 703;
+    public static final double CONVERSION_FACTOR = 703.0;
 
     private String name;
     private double bmi;
@@ -10,6 +15,7 @@ public class Patient {
     private int height;
     private int heightFt;
     private int heightIn;
+    private double finalBmi;
 
 
     // EFFECTS: constructs a new patient with given name; initializes the weight, height, and bmi to 0
@@ -18,6 +24,14 @@ public class Patient {
         this.weight = 0;
         this.height = 0;
         this.bmi = 0;
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     // REQUIRES: height, weight in imperial metric
@@ -29,6 +43,8 @@ public class Patient {
         this.heightIn = heightIn;
         this.height = (heightFt * 12) + heightIn;
         this.bmi = (weight * CONVERSION_FACTOR) / (height * height);
+        finalBmi = round(bmi, 1);
+        this.bmi = finalBmi;
         return bmi;
     }
 
