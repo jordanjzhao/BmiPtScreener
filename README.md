@@ -33,9 +33,9 @@ cardiovascular disease (CVD).
 
 ## Works Cited
 
-Khan, Sadiya S., et al. "Association of Body Mass Index with Lifetime 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Risk of Cardiovascular Disease and Compression of Morbidity."
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*JAMA Cardiology*, vol. 3, no. 4, 2018, p. 280.,
+Khan, Sadiya S., et al. "Association of Body Mass Index with Lifetime <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Risk of Cardiovascular Disease and Compression of Morbidity."<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*JAMA Cardiology*, vol. 3, no. 4, 2018, p. 280., <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://doi.org/10.1001/jamacardio.2018.0022.
 
 
