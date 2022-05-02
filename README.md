@@ -18,6 +18,14 @@ cardiovascular disease (CVD). Higher BMI categories
 and overweight is found to be associated with 
 increased risk of developing CVD at an earlier age (Khan et al.)
 
+*BMI Score Interpretations* <br />
+| BMI | Weight Status | 
+ --- | --- 
+| Below 18.5 | Underweight |
+| 18.5 - 24.9 | Healthy Weight |
+| 25.0 - 29.9 | Overweight |
+| 30.0 and Above | Obesity |
+
 
 ## Functionality
 
@@ -26,6 +34,16 @@ increased risk of developing CVD at an earlier age (Khan et al.)
 - Read new patients into the log with a calculated BMI score
 - Update patient values and produce new calculation per each follow-up visit
 - Delete patients who are no longer being followed
+
+## User Stories
+
+*Specific outcomes:*
+- As a user, I want to be able to add a new patient and add it to a list of patients
+- As a user, I want to be able to select a patient and add/calculate a BMI score to that patient
+- As a user, I want to be able to select a patient and view the BMI score logged for that patient
+- As a user, I want to be able to select a patient and add any new measurements for that patient
+- As a user, I want to be able to delete a patient that is no longer being followed-up
+
 
 ## Programming 
 
