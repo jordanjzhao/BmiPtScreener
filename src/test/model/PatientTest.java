@@ -29,6 +29,10 @@ class PatientTest {
     // create new instance of patient with name
     public void patientTest() {
         assertEquals("Jordan", this.patient.getName());
+        assertEquals(170, this.patient.getWeight());
+        assertEquals(5, this.patient.getHeightFt());
+        assertEquals(11, this.patient.getHeightIn());
+        assertEquals(23.7, this.patient.getBmi());
     }
 
     @Test

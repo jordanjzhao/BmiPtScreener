@@ -14,8 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import com.apple.eawt.Application;
+//import com.apple.eawt.*;
 
+// Citation note: Code referenced from ListDemo application
+// https://docs.oracle.com/javase/tutorial/displayCode.html?code=https://docs.oracle.com/javase/tutorial/uiswing/examples/components/ListDemoProject/src/components/ListDemo.java
 // GUI Class for BMIApp
 public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     private static final String addString = "Add";
@@ -24,7 +26,6 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     private static final String loadString = "Load";
     private static final String JSON_STORE = "./data/screenlog.json";
     private static final String sqrSymbol = "²";
-
 
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -35,11 +36,9 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     private JLabel ptHeightInLabel;
 
     private JPanel titlePanel;
-    private JPanel patientPanel;
     private JPanel textPanel;
     private JPanel buttonPanel;
     private JPanel gridPanel;
-
 
     private JButton addButton;
     private JButton removeButton;
@@ -55,47 +54,44 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     private DefaultListModel patientModel;
     // a component that displays a set of Objects and allows user to select one or more items
     private JList patientJList;
-
     private JOptionPane optionPane;
 
     private ImageIcon bmiIcon = new ImageIcon("src/images/BmiPtScreener.png");
-    private ImageIcon bmiLogo = new ImageIcon("src/images/bmiLogo.png");
-    //PTScreenLog Instance:
+    private ImageIcon bmiLogo; //= new ImageIcon("src/images/bmiLogo.png");
+
+    // PTScreenLog Data Instance:
     private PatientScreenLog ptList = new PatientScreenLog("Physician's Screen Log");
 
-
-    // Construct new GUI (Graphical User Interface) for Bmi App
+    // EFFECTS: Construct new GUI (Graphical User Interface) for Bmi App
     public BmiAppGUI() {
+        // JFrame
+        bmiLogo = new ImageIcon("src/images/bmiLogo.png");
+        setSize(800, 600);
+        setLocation(100, 100);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
         // Create list model placed in scroll pane
         JScrollPane patientJListScrollPane = setupListModel();
         // Setup panels to be used
         setupPanels();
-
         // Setup buttons and fields and add to panel
         setupButtonFields();
-
-        //layout
-        //JPanel ptListPanel = new JPanel();
-
         // Setup panel layout adding panels to their specified location
         setupPanelLayout(patientJListScrollPane);
-
         // Setup JSON
         setupJson();
-
         // action commands
         setupActionCommands();
-
         // action button
         setupButtonActions();
     }
 
+    // EFFECTS: Sets up button action listeners and prompts
     private void setupButtonActions() {
         AddListener addListener = new AddListener(addButton);
         addButton.addActionListener(addListener);
         ptNameTF.addActionListener(addListener);
         ptNameTF.getDocument().addDocumentListener(addListener);
-        //String ptName = patientModel.getElementAt(patientJList.getSelectedIndex()).toString();
         addButton.setEnabled(false);
 
         removeButton.addActionListener(new RemoveListener());
@@ -112,6 +108,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         optionPane.setVisible(false);
     }
 
+    // EFFECTS: Sets up action commands
     private void setupActionCommands() {
         addButton.setActionCommand("add");
         removeButton.setActionCommand("remove");
@@ -119,11 +116,13 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         loadButton.setActionCommand("load");
     }
 
+    // EFFECTS: Sets up JSON read and write persistence stores
     private void setupJson() {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
     }
 
+    // EFFECTS: Sets up Panel Layout and adds Panel components
     private void setupPanelLayout(JScrollPane patientJListScrollPane) {
         //resize image
         Image bmiImg = bmiIcon.getImage();
@@ -133,7 +132,6 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         JLabel titleIcon = new JLabel(bmiIcon);
         titlePanel.add(titleIcon);
         //titlePanel.add(new JLabel("Patient Screen Log"));
-
         textPanel.add(ptNameLabel);
         textPanel.add(ptNameTF);
         textPanel.add(ptWeightLabel);
@@ -143,16 +141,21 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         textPanel.add(ptHeightInLabel);
         textPanel.add(ptHeightInTF);
 
+        buttonPanel.add(addButton);
+        buttonPanel.add(removeButton);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(loadButton);
+
         gridPanel.add(textPanel);
         gridPanel.add(buttonPanel);
 
         add(patientJListScrollPane);
-        add(titlePanel, BorderLayout.NORTH);
+        add(titlePanel, BorderLayout.PAGE_START);
         //add(ptListPanel, BorderLayout.CENTER);
-
         add(gridPanel, BorderLayout.PAGE_END);
     }
 
+    // EFFECTS: Sets up JLabels, JTextFields, and JButtons
     private void setupButtonFields() {
         ptNameLabel = new JLabel("Name:");
         ptNameTF = new JTextField(10);
@@ -168,12 +171,9 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         removeButton = new JButton(removeString);
         saveButton = new JButton(saveString);
         loadButton = new JButton(loadString);
-        buttonPanel.add(addButton);
-        buttonPanel.add(removeButton);
-        buttonPanel.add(saveButton);
-        buttonPanel.add(loadButton);
     }
 
+    // EFFECTS: Sets up JPanels
     private void setupPanels() {
         titlePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         textPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -181,10 +181,12 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         gridPanel = new JPanel(new GridLayout(2, 1));
     }
 
+    // EFFECTS: Sets up ListModel and JList
     private JScrollPane setupListModel() {
         patientModel = new DefaultListModel<>();
         patientJList = new JList<>(patientModel);
         patientJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        patientJList.setFont(new Font("Poppins", Font.TRUETYPE_FONT, 14));
 
         patientJList.setSelectedIndex(0);
         patientJList.addListSelectionListener(this);
@@ -193,10 +195,12 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
                 JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         JScrollBar bar = patientJListScrollPane.getVerticalScrollBar();
-        bar.setPreferredSize(new Dimension(200, 200));
+        bar.setPreferredSize(new Dimension(20, 200));
         return patientJListScrollPane;
     }
 
+    // MODIFIES: ptList
+    // EFFECTS: Sets up Remove button and events on click
     class RemoveListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //This method can be called only if
@@ -204,6 +208,8 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
             //so go ahead and remove whatever's selected.
             int index = patientJList.getSelectedIndex();
             patientModel.remove(index);
+            Patient ptRm = ptList.getPatient(index);
+            ptList.removePatient(ptRm);
 
             int size = patientModel.getSize();
 
@@ -224,14 +230,18 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         }
     }
 
+    // MODIFIES: ptList
+    // EFFECTS: Sets up Add button and events on click
     class AddListener implements ActionListener, DocumentListener {
         private boolean alreadyEnabled = false;
         private JButton button;
 
+        // EFFECTS: Sets Add button
         public AddListener(JButton button) {
             this.button = button;
         }
 
+        // EFFECTS: Actions performed on click
         public void actionPerformed(ActionEvent e) {
             Patient pt = new Patient(ptNameTF.getText());
             int weight = Integer.parseInt(ptWeightTF.getText());
@@ -255,12 +265,12 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
             }
 
             insertPatientToModel(ptBmi, index);
-
             resetPatientToAdd(index);
-            //UIManager.put("OptionPane.okButtonText", "Ok");
             JOptionPane.showMessageDialog(optionPane, "Patient added: " + pt.getName());
         }
 
+        // MODIFIES: this
+        // EFFECTS: Inserts entered patient to model
         private void insertPatientToModel(double ptBmi, int index) {
             patientModel.insertElementAt("Name: " + ptNameTF.getText() + " "
                     + "Weight: " + ptWeightTF.getText() + "lbs "
@@ -269,6 +279,8 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
                     index);
         }
 
+        // MODIFIES: this
+        // EFFECTS: Resets grid panel text fields
         private void resetPatientToAdd(int index) {
             ptNameTF.requestFocusInWindow();
             ptNameTF.setText("");
@@ -279,6 +291,8 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
             patientJList.ensureIndexIsVisible(index);
         }
 
+        // MODIFIES: this
+        // EFFECTS: Sets given parameter values of new patient to add
         private void setPatientToAdd(Patient pt, int weight, int heightFt, int heightIn, double ptBmi) {
             pt.setWeight(weight);
             pt.setHeightFt(heightFt);
@@ -342,6 +356,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         }
     }
 
+    // EFFECTS: Sets up Save button and events on click
     class SaveListener implements ActionListener {
         private JButton button;
 
@@ -354,6 +369,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         }
     }
 
+    // EFFECTS: Sets up Load button and events on click
     class LoadListener implements ActionListener {
         private JButton button;
 
@@ -365,7 +381,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
             loadPatientScreenLog();
         }
     }
-
+/*
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "add":
@@ -379,9 +395,9 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
                 break;
         }
     }
+ */
 
-
-    // MODIFIES: ptLog
+    // MODIFIES: ptList
     // EFFECTS: instantiates a new patient with BMI and adds the patient to the screen log
     private void newPatient() {
         Patient pt = new Patient(ptNameTF.getText());
@@ -408,7 +424,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         }
     }
 */
-    // EFFECTS: saves the patient screen log to file
+    // EFFECTS: saves the patient screen log to JSON file
     private void savePatientScreenLog() {
         try {
             jsonWriter.open();
@@ -421,7 +437,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads patient screen log from file
+    // EFFECTS: loads patient screen log from JSON file
     private void loadPatientScreenLog() {
         try {
             patientModel.removeAllElements();
@@ -440,31 +456,41 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         }
     }
 
-
     public static void createAndDisplayGUI() {
+        JOptionPane startPane = new JOptionPane("Welcome");
+        ImageIcon bmiStart = new ImageIcon("src/images/bmiStart.gif");
+        UIManager.put("OptionPane.informationIcon", bmiStart);
+        UIManager.put("OptionPane.okButtonText", "Start");
+        JOptionPane.showMessageDialog(startPane, "Welcome");
         BmiAppGUI app = new BmiAppGUI();
+        /* SET IN GUI
         app.setSize(800, 600);
         app.setLocation(100, 100);
         app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         app.setVisible(true);
+        */
     }
-
+    /* MOVED TO MAIN
     public static void main(String[] args) {
         //Schedule job for event-dispatching thread:
         //creating and showing BmiApp GUI
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Application application = Application.getApplication();
-                Image image = Toolkit.getDefaultToolkit().getImage("src/images/bmiLogo.png");
-                application.setDockIconImage(image);
+
+                //Application application = Application.getApplication();
+                //Image image = Toolkit.getDefaultToolkit().getImage("src/images/bmiLogo.png");
+                //application.setDockIconImage(image);
 
                 JOptionPane startPane = new JOptionPane("Welcome");
                 ImageIcon bmiStart = new ImageIcon("src/images/bmiStart.gif");
                 UIManager.put("OptionPane.informationIcon", bmiStart);
                 UIManager.put("OptionPane.okButtonText", "Start");
                 JOptionPane.showMessageDialog(startPane, "Welcome");
+
                 createAndDisplayGUI();
+
             }
         });
     }
+    */
 }

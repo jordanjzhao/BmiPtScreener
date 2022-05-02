@@ -3,37 +3,135 @@
         {
             "HeightFt": 5,
             "Weight": 170,
-            "Name": "jz",
+            "Name": "Jordan Zhao",
             "HeightIn": 11,
             "BMI": 23.7
         },
         {
             "HeightFt": 5,
-            "Weight": 160,
-            "Name": "ed",
-            "HeightIn": 9,
-            "BMI": 23.6
-        },
-        {
-            "HeightFt": 5,
-            "Weight": 160,
-            "Name": "kobe",
-            "HeightIn": 6,
-            "BMI": 25.8
-        },
-        {
-            "HeightFt": 5,
             "Weight": 130,
-            "Name": "coll",
+            "Name": "Candy",
             "HeightIn": 8,
             "BMI": 19.8
         },
         {
-            "HeightFt": 5,
-            "Weight": 150,
-            "Name": "Candy",
+            "HeightFt": 7,
+            "Weight": 324,
+            "Name": "Shaquille O'Neal",
+            "HeightIn": 1,
+            "BMI": 31.5
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 230,
+            "Name": "Luka Dončić",
             "HeightIn": 7,
-            "BMI": 23.5
+            "BMI": 25.9
+        },
+        {
+            "HeightFt": 7,
+            "Weight": 290,
+            "Name": "Boban Marjanović",
+            "HeightIn": 3,
+            "BMI": 26.9
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 284,
+            "Name": "Zion Williamson",
+            "HeightIn": 6,
+            "BMI": 32.8
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 242,
+            "Name": "Giannis Antetokounmpo",
+            "HeightIn": 11,
+            "BMI": 24.7
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 212,
+            "Name": "Kobe Bryant",
+            "HeightIn": 6,
+            "BMI": 24.5
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 284,
+            "Name": "Nikola Jokić",
+            "HeightIn": 11,
+            "BMI": 29
+        },
+        {
+            "HeightFt": 7,
+            "Weight": 280,
+            "Name": "Joel Embiid",
+            "HeightIn": 0,
+            "BMI": 27.9
+        },
+        {
+            "HeightFt": 7,
+            "Weight": 258,
+            "Name": "Rudy Gobert",
+            "HeightIn": 1,
+            "BMI": 25.1
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 174,
+            "Name": "Ja Morant",
+            "HeightIn": 3,
+            "BMI": 21.7
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 206,
+            "Name": "Devin Booker",
+            "HeightIn": 5,
+            "BMI": 24.4
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 250,
+            "Name": "LeBron James",
+            "HeightIn": 9,
+            "BMI": 26.8
+        },
+        {
+            "HeightFt": 7,
+            "Weight": 245,
+            "Name": "Dirk Nowitzki",
+            "HeightIn": 0,
+            "BMI": 24.4
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 165,
+            "Name": "Allen Iverson",
+            "HeightIn": 0,
+            "BMI": 22.4
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 195,
+            "Name": "Damian Lillard",
+            "HeightIn": 2,
+            "BMI": 25
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 185,
+            "Name": "Stephen Curry",
+            "HeightIn": 2,
+            "BMI": 23.8
+        },
+        {
+            "HeightFt": 6,
+            "Weight": 200,
+            "Name": "Zach LaVine",
+            "HeightIn": 5,
+            "BMI": 23.7
         }
     ],
     "Name": "Physician's Screen Log"
