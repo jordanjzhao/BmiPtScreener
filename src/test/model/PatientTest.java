@@ -18,6 +18,7 @@ class PatientTest {
     }
 
     @Test
+    // set patient name
     public void setNameTest() {
         Patient p = new Patient("Ed");
         p.setName("Jordan");
@@ -25,21 +26,20 @@ class PatientTest {
     }
 
     @Test
+    // create new instance of patient with name
     public void patientTest() {
-        //create new instance of patient with name, id
         assertEquals("Jordan", this.patient.getName());
     }
 
     @Test
+    // calculate BMI
     public void bmiTest() {
-        //double bmi = patient.calculateBmi(5,11,170);
-        //patient.setBmi(bmi);
         assertEquals(23.0, this.patient.getBmi());
     }
 
-    //make sure it returns the list
     @Test
+    // return patient to string
     void returnString() {
-        assertEquals("Jordan, Weight: 170, Height: 5'11\", BMI: 23.0", this.patient.toString());
+        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.0 kg/m^2", this.patient.toString());
     }
 }

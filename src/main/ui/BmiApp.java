@@ -5,13 +5,14 @@ import model.PatientScreenLog;
 
 import java.util.Scanner;
 
-// Bmi calculator application
+// Citation note: Code referenced from TellerApp application
+// BMI calculator application
 public class BmiApp {
     private Patient pt;
     private Scanner input;
     private PatientScreenLog ptList;
 
-    // EFFECTS: runs the Bmi application
+    // EFFECTS: runs the BMI application
     public BmiApp() {
         runBmiApp();
     }
@@ -29,38 +30,38 @@ public class BmiApp {
             command = input.next();
             command = command.toLowerCase();
 
-            if (command.equals("q")) {
+            if (command.equals("quit")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
             }
         }
-
         System.out.println("\nFinished");
     }
 
+    // EFFECTS: prints instruction menu for user reference
     private void displayMenu() {
-        System.out.println("\nSelect from:");
-        System.out.println("\ta -> Add Patient");
-        System.out.println("\ts -> Select Patient");
-        System.out.println("\tr -> Remove Patient");
-        System.out.println("\tl -> Return list of Patient(s)");
-        System.out.println("\tp -> Compile Patient Screen Log");
-        System.out.println("\tq => Quit");
+        System.out.println("\nWelcome, select from the following options to continue:");
+        System.out.println("\tAdd -> Add a patient and calculate BMI");
+        System.out.println("\tSelect -> Select a patient to view BMI");
+        System.out.println("\tRemove -> Remove a patient from screen log");
+        System.out.println("\tReturn -> Return your patient screen log of all patients");
+        System.out.println("\tExport -> Compile your patient screen log for export");
+        System.out.println("\tQuit => Quit");
     }
 
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
-        if (command.equals("a")) {
+        if (command.equals("add")) {
             newPatient();
-        } else if (command.equals("s")) {
+        } else if (command.equals("select")) {
             selectPatient();
-        } else if (command.equals("l")) {
+        } else if (command.equals("return")) {
             printList();
-        }  else if (command.equals("p")) {
-            returnList();
-        } else if (command.equals("r")) {
+        }  else if (command.equals("export")) {
+            exportList();
+        } else if (command.equals("remove")) {
             removePatient();
         } else {
             System.out.println("Please make a valid selection");
@@ -68,13 +69,14 @@ public class BmiApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: initializes accounts
+    // EFFECTS: initializes PatientScreenLog and scanner
     private void init() {
         ptList = new PatientScreenLog();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
+    // EFFECTS: instantiates a new patient with BMI and adds the patient to the screen log
     private void newPatient() {
         System.out.println("Please enter name of new patient:");
         String ptName = input.next();
@@ -84,11 +86,12 @@ public class BmiApp {
         double ptBmi = doCalculation();
 
         System.out.println("Entered name: " + ptName);
-        System.out.println("Calculated BMI: " + ptBmi);
+        System.out.println("BMI Score: " + ptBmi + " kg/m^2");
 
         ptList.addPatientToList(pt);
     }
 
+    // EFFECTS: calculates the BMI
     private double doCalculation() {
         System.out.println("Please enter the patient weight (lbs):");
         int weight = input.nextInt();
@@ -104,6 +107,7 @@ public class BmiApp {
         return result;
     }
 
+    // EFFECTS: prints selected patient BMI
     private void selectPatient() {
         System.out.println("Enter the name of the patient you would like to select: ");
         String patientSelect = input.next();
@@ -112,11 +116,12 @@ public class BmiApp {
             if (patientSelect.equals(ptList.getPatient(i).getName())) {
                 System.out.println("You have selected: " + ptList.getPatient(i).getName());
                 this.pt = ptList.getPatient(i);
-                System.out.println(pt.getName() + ", BMI: " + pt.getBmi());
+                System.out.println("Name: " + pt.getName() + ", BMI: " + pt.getBmi() + " kg/m^2");
             }
         }
     }
 
+    // EFFECTS: removes selected patient from screen log
     private void removePatient() {
         System.out.println("Enter the name of the patient you would like to remove: ");
         String patientSelect = input.next();
@@ -127,9 +132,9 @@ public class BmiApp {
                 ptList.removePatient(ptList.getPatient(i));
             }
         }
-
     }
 
+    // EFFECTS: loops through screen log of patients to print
     private void printList() {
         int index = 0;
         while (index < ptList.length()) {
@@ -138,7 +143,8 @@ public class BmiApp {
         }
     }
 
-    private void returnList() {
-        System.out.println("Patients: " + ptList.returnList());
+    // EFFECTS: returns complete log of all patients
+    private void exportList() {
+        System.out.println("Patient Screen Log: " + ptList.returnList());
     }
 }

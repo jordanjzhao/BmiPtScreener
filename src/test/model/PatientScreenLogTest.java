@@ -3,9 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -30,8 +28,8 @@ public class PatientScreenLogTest {
         patient2.setBmi(23.0);
     }
 
-    //creating a list
     @Test
+    // creating a list
     public void createListTest() {
         ptList.addPatientToList(patient);
         assertEquals(1, ptList.length());
@@ -40,14 +38,15 @@ public class PatientScreenLogTest {
     }
 
     @Test
+    // select patient
     public void selectPatientTest() {
         ptList.addPatientToList(patient);
         assertEquals(ptList.getPatient(0), ptList.getPatient(0));
         ptList.addPatientToList(patient2);
     }
 
-    //print the list
     @Test
+    // print the patient as list
     void printListTest() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
@@ -55,14 +54,15 @@ public class PatientScreenLogTest {
     }
 
     @Test
+    // returns the screen log
     void returnListTest() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
-
         assertEquals(ptList.returnList(), ptList.returnList());
     }
 
     @Test
+    // Removes the patient
     void removePatientTest() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
