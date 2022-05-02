@@ -38,7 +38,8 @@ increased risk of developing CVD at an earlier age (Khan et al.)
 - As a user, I want to be able to view a user-friendly log of all the screened patients and their logged scores
 - As a user, I want to be able to remove a patient that is no longer being followed-up from the screen log
 - As a user, I want to be able to pull a single log of all patients screened for export
-
+- As a user, I want to be able to save my BMI patient list to file
+- As a user, I want to be able to load my BMI patient list from file
 
 ## Programming 
 
