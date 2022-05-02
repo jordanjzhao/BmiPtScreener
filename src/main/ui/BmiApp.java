@@ -46,6 +46,7 @@ public class BmiApp {
         System.out.println("\tp -> Print Patient Screen Log");
         System.out.println("\tq => Quit");
     }
+
     // MODIFIES: this
     // EFFECTS: processes user command
     private void processCommand(String command) {
@@ -72,20 +73,13 @@ public class BmiApp {
         System.out.println("Please enter name of new patient:");
         String ptName = input.next();
         input.nextLine();
-        //Patient p = new Patient();
 
-        // System.out.println("Entered name: " + p.getName());
         pt = new Patient(ptName);
         double ptBmi = doCalculation();
-        //p.setName(ptName);
-        //p.setBmi(ptBmi);
-        //Patient p = new Patient(ptName);
-        //pt.setName(ptName);
-        //pt.setName(ptName);
-        //pt.setBmi(ptBmi);
 
         System.out.println("Entered name: " + ptName);
         System.out.println("Calculated BMI: " + ptBmi);
+
         ptList.addPatientToList(pt);
     }
 
@@ -113,8 +107,6 @@ public class BmiApp {
                 System.out.println("You have selected: " + ptList.getPatient(i).getName());
                 this.pt = ptList.getPatient(i);
                 System.out.println(pt.getName() + ", BMI: " + pt.getBmi());
-            } else {
-                System.out.println("This patient you have entered does not match the database");
             }
         }
     }
