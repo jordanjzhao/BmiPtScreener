@@ -3,16 +3,37 @@
         {
             "HeightFt": 5,
             "Weight": 170,
-            "Name": "Jordan",
+            "Name": "jz",
             "HeightIn": 11,
             "BMI": 23.7
         },
         {
             "HeightFt": 5,
             "Weight": 160,
-            "Name": "Ed",
+            "Name": "ed",
+            "HeightIn": 9,
+            "BMI": 23.6
+        },
+        {
+            "HeightFt": 5,
+            "Weight": 160,
+            "Name": "kobe",
+            "HeightIn": 6,
+            "BMI": 25.8
+        },
+        {
+            "HeightFt": 5,
+            "Weight": 130,
+            "Name": "coll",
+            "HeightIn": 8,
+            "BMI": 19.8
+        },
+        {
+            "HeightFt": 5,
+            "Weight": 150,
+            "Name": "Candy",
             "HeightIn": 7,
-            "BMI": 25.1
+            "BMI": 23.5
         }
     ],
     "Name": "Physician's Screen Log"

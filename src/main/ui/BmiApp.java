@@ -157,7 +157,7 @@ public class BmiApp {
     private void printList() {
         int index = 0;
         while (index < ptList.length()) {
-            System.out.println(ptList.getPatient(index));
+            System.out.println(ptList.getPatient(index).toString());
             index = index + 1;
         }
     }

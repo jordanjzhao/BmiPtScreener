@@ -34,10 +34,11 @@ public class PatientScreenLog implements Writable {
     //EFFECTS: return full list of screen log
     public ArrayList<Patient> returnList() {
         ArrayList<Patient> ptLog = new ArrayList<>();
-        for (int i = 0; i < screenLog.size(); i++) {
-            ptLog.add(screenLog.get(i));
-        }
-        return ptLog;
+        //for (int i = 0; i < screenLog.size(); i++) {
+        //    ptLog.add(screenLog.get(i));
+        //}
+        //return ptLog;
+        return screenLog;
     }
 
     //EFFECTS: return size of screen log

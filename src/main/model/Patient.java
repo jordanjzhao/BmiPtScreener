@@ -88,6 +88,18 @@ public class Patient implements Writable {
         return name;
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
+    public int getHeightFt() {
+        return heightFt;
+    }
+
+    public int getHeightIn() {
+        return heightIn;
+    }
+
     // EFFECTS: returns patient bmi score
     public double getBmi() {
         return bmi;

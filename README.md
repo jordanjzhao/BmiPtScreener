@@ -41,6 +41,19 @@ increased risk of developing CVD at an earlier age (Khan et al.)
 - As a user, I want to be able to save my BMI patient list to file
 - As a user, I want to be able to load my BMI patient list from file
 
+*GUI Implementation:*
+- Include a panel in which all the patients added to the patient list are displayed
+- Two related events related to the patients and patient list
+  - add another patient button?
+  - select a patient button?
+  - remove a patient button?
+- Option to load and save
+  - load/save whenever OR pop up at start giving user option to load and save at end
+- Visual Component
+  - displaying an image when event occurs?
+  - displaying image or splash screen on app start?
+  - or display a graph to represent some aspect of user data?
+
 
 ## Programming 
 
