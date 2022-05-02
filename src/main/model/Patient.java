@@ -30,6 +30,19 @@ public class Patient implements Writable {
         this.interp = "";
     }
 
+    // EFFECTS: interprets BMI result
+    public String interpretBmi(double ptBmi) {
+        if (ptBmi < 18.5) {
+            return "Underweight";
+        } else if (ptBmi >= 18.5 && ptBmi <= 24.9) {
+            return "Healthy Weight";
+        } else if (ptBmi >= 25.0 && ptBmi <= 29.9) {
+            return "Overweight";
+        } else {
+            return "Obese";
+        }
+    }
+
     public static double round(double value, int places) {
         if (places < 0) {
             throw new IllegalArgumentException();
@@ -107,9 +120,12 @@ public class Patient implements Writable {
         return heightIn;
     }
 
-    // EFFECTS: returns patient bmi score
     public double getBmi() {
         return bmi;
+    }
+
+    public String getInterp() {
+        return interp;
     }
 
     // EFFECTS: returns the toString print of the patient screened

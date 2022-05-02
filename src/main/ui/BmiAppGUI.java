@@ -27,6 +27,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
     private static final String loadString = "Load";
     private static final String JSON_STORE = "./data/screenlog.json";
     private static final String sqrSymbol = "²";
+    private static final String TABSPACE = "    ";
 
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -249,7 +250,8 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
             int heightFt = Integer.parseInt(ptHeightFtTF.getText());
             int heightIn = Integer.parseInt(ptHeightInTF.getText());
             double ptBmi = pt.calculateBmi(weight, heightFt, heightIn);
-            setPatientToAdd(pt, weight, heightFt, heightIn, ptBmi);
+            String interp = pt.interpretBmi(ptBmi);
+            setPatientToAdd(pt, weight, heightFt, heightIn, ptBmi, interp);
 
             if (pt.getName().equals("") || alreadyInList(pt.getName())) {
                 Toolkit.getDefaultToolkit().beep();
@@ -265,18 +267,19 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
                 index++;
             }
 
-            insertPatientToModel(ptBmi, index);
+            insertPatientToModel(ptBmi, interp, index);
             resetPatientToAdd(index);
             JOptionPane.showMessageDialog(optionPane, "Patient added: " + pt.getName());
         }
 
         // MODIFIES: this
         // EFFECTS: Inserts entered patient to model
-        private void insertPatientToModel(double ptBmi, int index) {
+        private void insertPatientToModel(double ptBmi, String interp, int index) {
             patientModel.insertElementAt("Name: " + ptNameTF.getText() + " "
                     + "Weight: " + ptWeightTF.getText() + "lbs "
                     + "Height: " + ptHeightFtTF.getText() + "\'" + ptHeightInTF.getText() + "\" "
-                            + "BMI: " + ptBmi + " kg/m" + sqrSymbol,
+                    + "BMI: " + ptBmi + " kg/m" + sqrSymbol
+                    + TABSPACE + "Interpretation: " + interp,
                     index);
         }
 
@@ -294,11 +297,12 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
 
         // MODIFIES: this
         // EFFECTS: Sets given parameter values of new patient to add
-        private void setPatientToAdd(Patient pt, int weight, int heightFt, int heightIn, double ptBmi) {
+        private void setPatientToAdd(Patient pt, int weight, int heightFt, int heightIn, double ptBmi, String interp) {
             pt.setWeight(weight);
             pt.setHeightFt(heightFt);
             pt.setHeightIn(heightIn);
             pt.setBmi(ptBmi);
+            pt.setInterp(interp);
             ptList.addPatientToList(pt);
         }
 
@@ -349,7 +353,6 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
             if (patientJList.getSelectedIndex() == -1) {
                 //No selection, disable fire button.
                 removeButton.setEnabled(false);
-
             } else {
                 //Selection, enable the fire button.
                 removeButton.setEnabled(true);
@@ -406,7 +409,9 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
         int heightFt = Integer.parseInt(ptHeightFtTF.getText());
         int heightIn = Integer.parseInt(ptHeightInTF.getText());
         double ptBmi = pt.calculateBmi(weight, heightFt, heightIn);
-
+        pt.setBmi(ptBmi);
+        String interp = pt.interpretBmi(ptBmi);
+        pt.setInterp(interp);
         ptList.addPatientToList(pt);
         patientModel.addElement(ptNameTF.getText());
     }
@@ -449,6 +454,7 @@ public class BmiAppGUI extends JFrame implements ListSelectionListener  {
                         "Name: " + pt.getName() + " " + "Weight: " + pt.getWeight() + "lbs "
                         + "Height: " + pt.getHeightFt() + "\'" + pt.getHeightIn() + "\" "
                         + "BMI: " + pt.getBmi() + " kg/m" + sqrSymbol
+                        + "Interpretation: " + pt.getInterp()
                 );
             }
             JOptionPane.showMessageDialog(optionPane, "Patient screen log loaded");
