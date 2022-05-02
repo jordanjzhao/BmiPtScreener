@@ -14,7 +14,9 @@ patients.
 This project is of interest as it is a tool
 that could provide valuable source documentation
 and raise awareness to the potential risks of 
-cardiovascular disease (CVD).
+cardiovascular disease (CVD). Higher BMI categories
+and overweight is found to be associated with 
+increased risk of developing CVD at an earlier age (Khan et al.)
 
 
 ## Functionality
