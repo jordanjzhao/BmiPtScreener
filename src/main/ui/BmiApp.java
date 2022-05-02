@@ -101,6 +101,9 @@ public class BmiApp {
         // next input and you get a blank "selected" loop
 
         double result = pt.calculateBmi(heightFt, heightIn, weight);
+        pt.setWeight(weight);
+        pt.setHeightFt(heightFt);
+        pt.setHeightIn(heightIn);
         //return result;
         //System.out.println("BMI: " + result);
         return result;

@@ -12,7 +12,8 @@ class PatientTest {
     @BeforeEach
     public void setup() {
         this.patient = new Patient("Jordan");
-
+        double bmi = patient.calculateBmi(5,11,170);
+        patient.setBmi(bmi);
     }
 
     @Test
@@ -23,13 +24,14 @@ class PatientTest {
 
     @Test
     public void bmiTest() {
-        this.patient.calculateBmi(170,5,11);
-        assertEquals(24, this.patient.getBmi());
+        //double bmi = patient.calculateBmi(5,11,170);
+        //patient.setBmi(bmi);
+        assertEquals(23.0, this.patient.getBmi());
     }
 
     //make sure it returns the list
     @Test
     void returnString() {
-        assertEquals("Jordan 0.0", this.patient.toString());
+        assertEquals("Jordan, Weight: 170, Height: 5'11\", BMI: 23.0", this.patient.toString());
     }
 }

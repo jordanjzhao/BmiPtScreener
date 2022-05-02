@@ -31,8 +31,12 @@ public class Patient {
         this.name = name;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setHeightFt(int heightFt) {
+        this.heightFt = heightFt;
+    }
+
+    public void setHeightIn(int heightIn) {
+        this.heightIn = heightIn;
     }
 
     public void setWeight(int weight) {
