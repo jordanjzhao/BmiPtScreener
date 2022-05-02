@@ -23,6 +23,11 @@ public class PatientScreenLog {
     public void addPatientToList(Patient patient) {
         screenLog.add(patient);
     }
+/*
+    public void getList() {
+        return screenLog;
+    }
+*/
 
     /*
     // EFFECTS: return list
@@ -41,6 +46,11 @@ public class PatientScreenLog {
     //EFFECTS: return size of list
     public int getSize() {
         return screenLog.size();
+    }
+
+    //EFFECTS: get patient
+    public Patient getPatient(int index) {
+        return screenLog.get(index);
     }
 
 }

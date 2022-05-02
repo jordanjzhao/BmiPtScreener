@@ -15,6 +15,7 @@ public class BmiApp {
 
     // EFFECTS: runs the Bmi application
     public BmiApp() {
+        pt = new Patient();
         ptList = new PatientScreenLog();
         runBmi();
     }
@@ -57,7 +58,7 @@ public class BmiApp {
         } else if (command.equals("s")) {
             doCalculation();
         } else if (command.equals("p")) {
-            doCalculation();
+            printList();
         } else {
             System.out.println("Please make a valid selection");
         }
@@ -66,7 +67,6 @@ public class BmiApp {
     // MODIFIES: this
     // EFFECTS: initializes accounts
     private void init() {
-        pt = new Patient("Jordan");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -82,11 +82,14 @@ public class BmiApp {
 
         //p.setName(ptName);
         //p.setBmi(ptBmi);
-        Patient p = new Patient(ptName);
-        p.setBmi(ptBmi);
+        //Patient p = new Patient(ptName);
+        pt.setName(ptName);
+        //pt.setName(ptName);
+        pt.setBmi(ptBmi);
 
         System.out.println("Entered name: " + ptName);
         System.out.println("Calculated BMI: " + ptBmi);
+        ptList.addPatientToList(pt);
     }
 
     private double doCalculation() {
@@ -108,12 +111,14 @@ public class BmiApp {
         //System.out.println("BMI: " + result);
         return result;
     }
-/*
-    private ArrayList<Patient> printList() {
-        for (Patient pt : ptList) {
-            System.out.println(pt);
+
+    private void printList() {
+        int index = 0;
+        while (index < ptList.getSize()) {
+            System.out.println(ptList.getPatient(index));
+            index = index + 1;
         }
     }
-*/
+
 
 }

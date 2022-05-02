@@ -15,15 +15,17 @@ public class PatientScreenLogTest {
     private Patient patient2;
 
     @BeforeEach
-    void setup() {
+    public void setup() {
         ptList = new PatientScreenLog();
-        patient = new Patient("jz");
-        patient2 = new Patient("jt");
+        patient = new Patient();
+        patient.setName("jz");
+        patient2 = new Patient();
+        patient2.setName("jt");
     }
 
     //creating a list
     @Test
-    void createList() {
+    public void createList() {
         ptList.addPatientToList(patient);
         assertEquals(1, ptList.getSize());
         ptList.addPatientToList(patient2);
@@ -31,13 +33,10 @@ public class PatientScreenLogTest {
     }
 
     //print the list
-    /*
     @Test
     void printList() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
-        assertEquals("jz 20.0, jt 15.0", ptList.returnList());
+        assertEquals("jz, Weight: 0, Height: 0'0\", BMI: 0.0", ptList.getPatient(0));
     }
-    */
-
 }

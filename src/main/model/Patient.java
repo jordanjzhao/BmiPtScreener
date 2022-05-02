@@ -17,9 +17,9 @@ public class Patient {
 
 
 
-    public Patient(String patientName) { //, double patientBmi) {
+    public Patient() { //, double patientBmi) {
         id = nextAccountId++;
-        this.name = patientName;
+        this.name = "";
         //this.bmi = patientBmi;
         this.height = 0;
         this.weight = 0;
@@ -74,4 +74,5 @@ public class Patient {
     public String toString() {
         return this.name + ", Weight: " + this.weight + ", Height: " + this.heightFt + "'" + this.heightIn + "\"" + ", BMI: " + this.bmi;
     }
+
 }
