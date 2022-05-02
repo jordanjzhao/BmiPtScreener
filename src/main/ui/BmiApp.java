@@ -2,18 +2,29 @@ package ui;
 
 import model.Patient;
 import model.PatientScreenLog;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.File;
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+
 
 // Citation note: Code referenced from TellerApp application
 // BMI calculator application
 public class BmiApp {
+    private static final String JSON_STORE = "./data/screenlog.json";
+
     private Patient pt;
     private Scanner input;
     private PatientScreenLog ptList;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs the BMI application
-    public BmiApp() {
+    public BmiApp() throws FileNotFoundException {
         runBmiApp();
     }
 
@@ -47,6 +58,8 @@ public class BmiApp {
         System.out.println("\tRemove -> Remove a patient from screen log");
         System.out.println("\tReturn -> Return your patient screen log of all patients");
         System.out.println("\tExport -> Compile your patient screen log for export");
+        System.out.println("\tSave -> Save your patient screen log to file");
+        System.out.println("\tLoad -> Load your patient screen log from file");
         System.out.println("\tQuit => Quit");
     }
 
@@ -63,6 +76,10 @@ public class BmiApp {
             exportList();
         } else if (command.equals("remove")) {
             removePatient();
+        } else if (command.equals("save")) {
+            savePatientScreenLog();
+        } else if (command.equals("load")) {
+            loadPatientScreenLog();
         } else {
             System.out.println("Please make a valid selection");
         }
@@ -71,8 +88,10 @@ public class BmiApp {
     // MODIFIES: this
     // EFFECTS: initializes PatientScreenLog and scanner
     private void init() {
-        ptList = new PatientScreenLog();
+        ptList = new PatientScreenLog("Physician's Screen Log");
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         input.useDelimiter("\n");
     }
 
@@ -146,5 +165,28 @@ public class BmiApp {
     // EFFECTS: returns complete log of all patients
     private void exportList() {
         System.out.println("Patient Screen Log: " + ptList.returnList());
+    }
+
+    // EFFECTS: saves the patient screen log to file
+    private void savePatientScreenLog() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(ptList);
+            jsonWriter.close();
+            System.out.println("Saved " + ptList.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads patient screen log from file
+    private void loadPatientScreenLog() {
+        try {
+            ptList = jsonReader.read();
+            System.out.println("Loaded " + ptList.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 }

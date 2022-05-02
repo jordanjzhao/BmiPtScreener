@@ -1,12 +1,14 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 // Represents a patient having a patient name and a BMI score
-public class Patient {
+public class Patient implements Writable {
     public static final double CONVERSION_FACTOR = 703.0;
 
     private String name;
@@ -93,5 +95,16 @@ public class Patient {
     public String toString() {
         return ("Name: " + this.name + ", Weight: " + this.weight + " lbs" + ", Height: " + this.heightFt + "'" + //
                 this.heightIn + "\"" + ", BMI: " + this.bmi + " kg/m^2");
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Name", name);
+        json.put("Weight", weight);
+        json.put("HeightFt", heightFt);
+        json.put("HeightIn", heightIn);
+        json.put("BMI", bmi);
+        return json;
     }
 }

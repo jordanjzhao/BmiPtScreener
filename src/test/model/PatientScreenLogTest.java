@@ -13,7 +13,7 @@ public class PatientScreenLogTest {
 
     @BeforeEach
     public void setup() {
-        ptList = new PatientScreenLog();
+        ptList = new PatientScreenLog("Physician's Screen Log");
         patient = new Patient("jz");
         patient.setWeight(170);
         patient.setHeightFt(5);

@@ -1,15 +1,25 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 // Represents a screen log of patients and their stored bmi measurements
-public class PatientScreenLog {
+public class PatientScreenLog implements Writable {
+    private String name;
     private ArrayList<Patient> screenLog;
 
-    //EFFECTS:  constructs an empty list of type Patient
-    public PatientScreenLog() {
+    // EFFECTS:  constructs an empty list of type Patient
+    // constructs workroom with a name and empty list of patients
+    public PatientScreenLog(String name) {
+        this.name = name;
         screenLog = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
     }
 
     // REQUIRES: patient to be added
@@ -46,4 +56,22 @@ public class PatientScreenLog {
         return screenLog.remove(p);
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Name", name);
+        json.put("Patients", patientsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns patients in this patient screen log as a JSON array
+    private JSONArray patientsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Patient p : screenLog) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
+    }
 }
