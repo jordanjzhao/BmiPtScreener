@@ -47,6 +47,7 @@ public class JsonReader {
         addPatients(pt, jsonObject);
         return pt;
     }
+
     // MODIFIES: psl
     // EFFECTS: parses patients from JSON object and adds them to patient screen log
     private void addPatients(PatientScreenLog psl, JSONObject jsonObject) {
