@@ -44,7 +44,7 @@ class PatientTest {
     @Test
     // return patient to string
     void returnString() {
-        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.7 kg/m^2",
+        assertEquals("Name: Jordan, Weight: 170 lbs, Height: 5'11\", BMI: 23.7 kg/m^2, Interpretation: ",
                 this.patient.toString());
     }
 

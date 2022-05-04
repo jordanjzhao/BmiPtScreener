@@ -3,6 +3,10 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PatientScreenLogTest {
@@ -36,28 +40,36 @@ public class PatientScreenLogTest {
     // select patient
     public void selectPatientTest() {
         ptList.addPatientToList(patient);
-        assertEquals(ptList.getPatient(0), ptList.getPatient(0));
+        assertEquals(patient, ptList.getPatient(0));
         ptList.addPatientToList(patient2);
+        assertEquals(patient2, ptList.getPatient(1));
     }
 
     @Test
-    // print the patient as list
+        // print the patient as list
     void printListTest() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
-        assertEquals(ptList.getPatient(0), ptList.getPatient(0));
+        assertEquals(patient, ptList.getPatient(0));
+        assertEquals(patient2, ptList.getPatient(1));
     }
 
     @Test
-    // returns the screen log
+        // returns the screen log
     void returnListTest() {
+        List<Patient> expectedResult = new ArrayList<>();
+        expectedResult.add(patient);
+        expectedResult.add(patient2);
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);
-        assertEquals(ptList.returnList(), ptList.returnList());
+        assertArrayEquals(expectedResult, ptList.returnList());
+    }
+
+    private void assertArrayEquals(List<Patient> expectedResult, ArrayList<Patient> returnList) {
     }
 
     @Test
-    // Removes the patient
+        // Removes the patient
     void removePatientTest() {
         ptList.addPatientToList(patient);
         ptList.addPatientToList(patient2);

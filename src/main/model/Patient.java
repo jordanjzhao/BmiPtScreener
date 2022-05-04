@@ -6,6 +6,7 @@ import persistence.Writable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 // Represents a patient having a patient name and a BMI score
 public class Patient implements Writable {
@@ -144,5 +145,18 @@ public class Patient implements Writable {
         json.put("BMI", bmi);
         json.put("Interpretation", interp);
         return json;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Patient patient = (Patient) o;
+        return Double.compare(patient.bmi, bmi) == 0 && weight == patient.weight && height == patient.height && heightFt == patient.heightFt && heightIn == patient.heightIn && Double.compare(patient.finalBmi, finalBmi) == 0 && Objects.equals(name, patient.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, bmi, weight, height, heightFt, heightIn, finalBmi);
     }
 }

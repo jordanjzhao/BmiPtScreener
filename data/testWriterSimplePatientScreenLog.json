@@ -1,6 +1,7 @@
 {
     "Patients": [{
         "HeightFt": 0,
+        "Interpretation": "",
         "Weight": 0,
         "Name": "Jordan",
         "HeightIn": 0,
